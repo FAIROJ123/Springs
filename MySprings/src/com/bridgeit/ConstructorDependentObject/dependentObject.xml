@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+               http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="address" class="com.bridgeit.ConstructorDependentObject.Address">
+		<constructor-arg value="B.kothakota" index="2"></constructor-arg>
+		<constructor-arg value="Chittoor" index="1"></constructor-arg>
+		<constructor-arg value="hyd" index="0"></constructor-arg>
+	</bean>
+
+	<bean id="person" class="com.bridgeit.ConstructorDependentObject.Person">
+		<constructor-arg value="Fairoj"></constructor-arg>
+		<constructor-arg>
+
+			<ref bean="address" />
+		</constructor-arg>
+
+	</bean>
+
+</beans>
