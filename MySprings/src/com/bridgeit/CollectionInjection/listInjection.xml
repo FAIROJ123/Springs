@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+               http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+<bean id="user1" class="com.bridgeit.CollectionInjection.User">
+<constructor-arg value="Phani"></constructor-arg>
+<constructor-arg value="Nalgonda"></constructor-arg>
+<constructor-arg value="Java File"></constructor-arg>
+</bean>
+
+<bean id="user2" class="com.bridgeit.CollectionInjection.User">
+<constructor-arg value="Kiran"></constructor-arg>
+<constructor-arg value="Chittor"></constructor-arg>
+<constructor-arg value="Angular Js"></constructor-arg>
+</bean>
+
+<bean id="fileInfo1" class="com.bridgeit.CollectionInjection.FileInfo">
+<constructor-arg index="1" value="234"></constructor-arg>
+<constructor-arg index="0" value="Java File"></constructor-arg>
+<constructor-arg index="2" value="13 May 2018"></constructor-arg>
+</bean>
+
+<bean id="fileInfo2" class="com.bridgeit.CollectionInjection.FileInfo">
+<constructor-arg   value="Angular Js"></constructor-arg>
+<constructor-arg  value="45"></constructor-arg>
+<constructor-arg  value="31 May 2018"></constructor-arg>
+
+</bean>
+
+<bean id="Employee" class="com.bridgeit.CollectionInjection.Employee" >
+<constructor-arg type="java.lang.String" value="Fairoj"></constructor-arg>
+<constructor-arg type="int" value="123"></constructor-arg>
+<constructor-arg type="java.lang.String" value="Java Developer"></constructor-arg>
+<constructor-arg>
+<list>
+<value>Java File</value>
+<value>AngularJs</value>
+<value>JavaScript</value>
+</list>
+</constructor-arg>
+
+<constructor-arg>
+<list>
+<ref bean="user1"/>
+<ref bean="user2"/>
+</list>
+</constructor-arg>
+
+<constructor-arg>
+<map>
+<entry key="Java File" value="Afroz"></entry>
+<entry key="Agular Js" value="Fairoj"></entry>
+<entry key="Java File"  value="Phani"></entry>
+</map>
+</constructor-arg>
+
+<constructor-arg>
+<map>
+<entry key-ref="fileInfo1" value-ref="user1"></entry>
+<entry key-ref="fileInfo2" value-ref="user2"></entry>
+</map>
+</constructor-arg>
+
+</bean>
+</beans>
