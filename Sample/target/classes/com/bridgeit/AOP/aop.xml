@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans  
+    xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans   
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">  
+
+<bean id="a" class="com.bridgeit.AOP.A"></bean>
+<bean id="beforeadvice" class="com.bridgeit.AOP.BeforeAdvisor"></bean>
+<bean id="afteradvice"  class="com.bridgeit.AOP.AfterAdvice"></bean>
+<bean id="aroundadvice" class="com.bridgeit.AOP.Aroundadvice" ></bean>
+<bean id="throw"   class="com.bridgeit.AOP.Throwadvice"></bean>
+
+<bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">  
+<property name="target" ref="a"></property>  
+<property name="interceptorNames">  
+<list>  
+<value>beforeadvice</value>  
+<value>afteradvice</value>
+<value>aroundadvice</value>
+<value>throw</value>
+</list>  
+</property>  
+</bean>  
+</beans>
