@@ -7,8 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+%
+response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
 
-
+if(session.getAttribute("message")==null)
+{
+	response.sendRedirect("index.jsp");
+}
+ else {
+%>
 	<h3>Hi ${Username}</h3>
 	<h3>Welcome to my Page</h3>
 	<h3>If you want to Logout click on This Link</h3>

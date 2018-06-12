@@ -8,7 +8,7 @@
 
 </head>
 <body>
-	<form name="myform" action="registerProcess" method="POST" modelAttribute='user'>
+	<form name="myform" action="registerProcess" method="POST" modelAttribute="user">
 		<table style="background-color: skyblue; margin-left: 400px;">
 
 			<tr>
@@ -29,7 +29,7 @@
 			</tr>
 			<tr>
 				<td>Phone Number:</td>
-				<td><input type="text" name="phoneNumber" size="10"></td>
+				<td><input type="text" name="phone" size="10"></td>
 			</tr>
 			<tr>
 				<td><input type="submit" name="submit" value="register" 
@@ -38,8 +38,8 @@
 			</tr>
 
 
-
 		</table>
+		<p>${message}</p>
 	</form>
 </body>
 </html>

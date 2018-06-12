@@ -14,14 +14,14 @@
 
 			<tr>
 				<td><h3 style="color:red;">${message }</h3>
-					<h3 style="color:green;">${message }</h3></td>
+					
 			<tr>
 				<td style="color: red"><h3>Login page</h3></td>
 
 			</tr>
 			<tr>
 				<td>UserName:</td>
-				<td><input type="text" name="name" ></td>
+				<td><input type="text" name="username" ></td>
 			</tr>
 			<tr>
 				<td>Password:</td>
