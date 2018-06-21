@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 
 </head>
+<%
+response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
+%>
 <body>
 	<form name="myform" action="registerProcess" method="POST" modelAttribute="user">
 		<table style="background-color: skyblue; margin-left: 400px;">

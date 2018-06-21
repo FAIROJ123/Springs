@@ -2,6 +2,7 @@ package com.bridgeit.foldercontroll;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -53,15 +54,21 @@ public class LoginController {
 		ModelAndView mav = null;
 		String username = user.getUsername();//username
 		String password = user.getPassword();//password
-
+	
+		HttpSession session=request.getSession();
 		
-		if (username != "" && password != "") 
+		
+		
+		if (username!="" && password!="") 
 		{
 			User u = userDao.getUser(user);
+			session.setAttribute("user", u);
+			
 			System.out.println(u);
+			
 			if(u!=null) {
-			mav = new ModelAndView("welcome");
-			mav.addObject("Username", user.getUsername());
+			mav = new ModelAndView("redirect:/welcome");
+			mav.addObject("User", u);
 			
 			}
 			else {
@@ -78,4 +85,25 @@ public class LoginController {
 		return mav;
 	}
 
-}
+	 @RequestMapping(value = "/welcome", method = RequestMethod.GET)
+		public ModelAndView displayWelcome(HttpServletRequest request, HttpServletResponse response) {
+		  ModelAndView modelAndView=null;	
+		  HttpSession session=request.getSession(false);
+		
+		  if(session!=null && session.getAttribute("user")!=null)
+		  {
+			System.out.println("rakesh");  
+			modelAndView=new ModelAndView("welcome");
+			modelAndView.addObject("user", session.getAttribute("user"));
+			
+		  }
+		  else
+		  {
+		   System.out.println("soni");	  
+		   modelAndView=new ModelAndView("index"); 
+		   modelAndView.addObject("message","Please Login First");
+		  }
+	       
+		  return modelAndView;
+	}
+    }

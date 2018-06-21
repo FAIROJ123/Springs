@@ -17,11 +17,10 @@ public class Logout {
 	public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
 		HttpSession session = request.getSession(false);
-
-		session.removeAttribute("message");
+        
+		session.removeAttribute("user");
 		session.invalidate();
-        response.sendRedirect("index.jsp");
-
+       
 		return new ModelAndView("index","message","Logout Successfully..");
 	}
 }

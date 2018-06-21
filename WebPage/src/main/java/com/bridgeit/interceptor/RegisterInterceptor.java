@@ -37,7 +37,7 @@ public class RegisterInterceptor extends HandlerInterceptorAdapter {
 			throw new ModelAndViewDefiningException(mav);
 		}
 		
-		if(phone.length()<=10)
+		if(phone.length()<10)
 		{
 			ModelAndView mav;
 			mav = new ModelAndView("register");
